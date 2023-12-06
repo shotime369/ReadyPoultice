@@ -143,7 +143,6 @@ public class Cards {
         }
     }
 
-
     public static void main(String[] args) {
         startMenu();
         option2();
