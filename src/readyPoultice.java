@@ -83,100 +83,64 @@ public class readyPoultice {
     }
     public static void setFamiliarRelationship(){
     switch (cardValue){
-        case 1 -> {
-            familiarRelationship = """
-                    Chanced Upon. Until recently, you had no idea who
-                        they were. Now, you get on like a house on fire.
-                            Journal about the spark that started your
-                            relationship’s blaze.""";
-
-        }
-        case 2 -> {
-            familiarRelationship = """
-        Companion. Your shared love runs deep. You oft
-        think about each other and feel stronger together.
-        Journal about when you realised you loved them.""";
-
-        }
-        case 3 -> {
-            familiarRelationship = """
-                    Collaborators. You were united by a passion for
-                            seeing a project or cause through to the end.
-                            Journal about what you both hope to achieve.""";
-
-        }
-        case 4 ->{
-            familiarRelationship = """
-                    Mentor. It can be annoying to have your reins pulled
-                            in, but this wiser beast’s experience is invaluable.
-                            Journal about the most important lesson they have
-                            imparted to you.""";
-
-        }
-        case 5 ->{
-            familiarRelationship = """
-                    Supportive. Something in common hounds you
-                            both. You’ve found security in each other’s paws.
-                            Journal about what you are running from.""";
-
-        }
-        case 6 ->{
-            familiarRelationship = """
-                    Wildcard. Something about them absolutely
-                            fascinates you—they find this entertaining.
-                            Journal about why they are so cool!""";
-
-        }
-        case 7 ->{
-            familiarRelationship = """
-                    Oldest Friend. You grew up together and know
-                            everything about each other. Who else could you trust?
-                            Journal about something embarrassing they did as
-                            a cub, pup, fledgling or hatchling""";
-
-        }
-        case 8 ->{
-            familiarRelationship = """
-                    Blood-bound. You agreed never to speak of it again.
-                            This secret will be kept from here to Elsewhere.
-                            Think about what happened. Never admit to it.""";
-
-        }
-        case 9 ->{
-            familiarRelationship = """
-                    Sibling. It doesn't matter if you actually share
-                            blood; you treat this rapscallion as your own family.
-                            It's just a shame they can be so frustrating at
-                            times! Will they ever grow up?\s
-                            Journal about a lesson they keep failing to learn.""";
-
-        }
-        case 10 ->{
-            familiarRelationship = """
-                    Rekindled. You once shared a very different
-                            relationship. What matters presently is that you
-                            need each other.\s
-                            Journal about the breakup, and
-                            crossing paths again.""";
-
-        }
-        case 11 ->{
-            familiarRelationship = """
-                    Elsewhere. They’re gone, you’ll never see them
-                            again. Still, they’re in your mind and memories, and
-                            sometimes you talk.
-                            Journal about something or somewhere you wish
-                            you could have shown them.""";
-
-        }
-        case 12, 13 ->{
-            familiarRelationship = """
-                    Parental. They nursed you from a tiny thing to a
-                            fully-fledged adult. Even though you’ve flown the
-                            nest, they still protectively circle you.
-                            Journal about the stifling safety they provide.""";
-
-        }
+        case 1 -> familiarRelationship = """
+                Chanced Upon. Until recently, you had no idea who
+                    they were. Now, you get on like a house on fire.
+                        Journal about the spark that started your
+                        relationship’s blaze.""";
+        case 2 -> familiarRelationship = """
+    Companion. Your shared love runs deep. You oft
+    think about each other and feel stronger together.
+    Journal about when you realised you loved them.""";
+        case 3 -> familiarRelationship = """
+                Collaborators. You were united by a passion for
+                        seeing a project or cause through to the end.
+                        Journal about what you both hope to achieve.""";
+        case 4 -> familiarRelationship = """
+                Mentor. It can be annoying to have your reins pulled
+                        in, but this wiser beast’s experience is invaluable.
+                        Journal about the most important lesson they have
+                        imparted to you.""";
+        case 5 -> familiarRelationship = """
+                Supportive. Something in common hounds you
+                        both. You’ve found security in each other’s paws.
+                        Journal about what you are running from.""";
+        case 6 -> familiarRelationship = """
+                Wildcard. Something about them absolutely
+                        fascinates you—they find this entertaining.
+                        Journal about why they are so cool!""";
+        case 7 -> familiarRelationship = """
+                Oldest Friend. You grew up together and know
+                        everything about each other. Who else could you trust?
+                        Journal about something embarrassing they did as
+                        a cub, pup, fledgling or hatchling""";
+        case 8 -> familiarRelationship = """
+                Blood-bound. You agreed never to speak of it again.
+                        This secret will be kept from here to Elsewhere.
+                        Think about what happened. Never admit to it.""";
+        case 9 -> familiarRelationship = """
+                Sibling. It doesn't matter if you actually share
+                        blood; you treat this rapscallion as your own family.
+                        It's just a shame they can be so frustrating at
+                        times! Will they ever grow up?\s
+                        Journal about a lesson they keep failing to learn.""";
+        case 10 -> familiarRelationship = """
+                Rekindled. You once shared a very different
+                        relationship. What matters presently is that you
+                        need each other.\s
+                        Journal about the breakup, and
+                        crossing paths again.""";
+        case 11 -> familiarRelationship = """
+                Elsewhere. They’re gone, you’ll never see them
+                        again. Still, they’re in your mind and memories, and
+                        sometimes you talk.
+                        Journal about something or somewhere you wish
+                        you could have shown them.""";
+        case 12, 13 -> familiarRelationship = """
+                Parental. They nursed you from a tiny thing to a
+                        fully-fledged adult. Even though you’ve flown the
+                        nest, they still protectively circle you.
+                        Journal about the stifling safety they provide.""";
 
 
     }
@@ -405,9 +369,7 @@ public class readyPoultice {
         System.out.print("Select your option: ");
         int option1 =  sc.nextInt();
         switch (option1) {
-            case 1 -> {
-                save(characterID);
-            }
+            case 1 -> save(characterID);
             case 2 -> {
                 makeCharacter();
                 happy();
@@ -501,18 +463,10 @@ canSoar = true;
     private static String getOrigin() {
         String origin = ("");
         switch (cardSuit) {
-            case 0 -> {
-                origin = (" Inspired by a passing Poulticier, and the impression they left.");
-            }
-            case 1 -> {
-                origin = (" Recruited to help elderly Poulticiers find reagents.");
-            }
-            case 2 -> {
-                origin = (" Received treatment after a violent encounter.");
-            }
-            case 3 -> {
-                origin = (" Needed a Poulticier's services after an accident.");
-            }
+            case 0 -> origin = (" Inspired by a passing Poulticier, and the impression they left.");
+            case 1 -> origin = (" Recruited to help elderly Poulticiers find reagents.");
+            case 2 -> origin = (" Received treatment after a violent encounter.");
+            case 3 -> origin = (" Needed a Poulticier's services after an accident.");
         }
         return origin;
     }
