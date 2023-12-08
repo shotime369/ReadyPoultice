@@ -1,5 +1,5 @@
 import java.util.Random;
-public class Cards {
+public class CardswithJoker {
     static String suitSymbol;
     static int cardNumber;
     public static void printCard(int cardNumber){
@@ -12,7 +12,7 @@ public class Cards {
                     "\uD83C\uDF3F║         ║\uD83C\uDF3F\n" +
                     "\uD83C\uDF44║       %d ║\uD83C\uDF44\n" +
                     "\uD83C\uDF3F╚═════════╝\uD83C\uDF3F\n" +
-                    "\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44", Cards.cardNumber, suitSymbol, Cards.cardNumber);
+                    "\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44", CardswithJoker.cardNumber, suitSymbol, CardswithJoker.cardNumber);
         }
         else if (cardNumber == 10){
             System.out.format("\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44\n" +
@@ -23,7 +23,7 @@ public class Cards {
                     "\uD83C\uDF3F║         ║\uD83C\uDF3F\n" +
                     "\uD83C\uDF44║      %d ║\uD83C\uDF44\n" +
                     "\uD83C\uDF3F╚═════════╝\uD83C\uDF3F\n" +
-                    "\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44", Cards.cardNumber, suitSymbol, Cards.cardNumber);
+                    "\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44", CardswithJoker.cardNumber, suitSymbol, CardswithJoker.cardNumber);
         }
         else if (cardNumber == 11){
             System.out.format("\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44\n" +
