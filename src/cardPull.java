@@ -66,7 +66,7 @@ public class cardPull {
     public static void main(String[] args) {
         System.out.println("Pull a Card: ");
         Random random = new Random();
-        cardValue = random.nextInt(1, 13);
+        cardValue = random.nextInt(1, 14);
         cardSuit = random.nextInt(0, 4);
         suitSymbol = getCardSuit(cardSuit);
         cardNumber = getCardNumber(cardValue);
