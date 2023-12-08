@@ -1,12 +1,10 @@
 import java.util.Random;
 
 public class cardPull {
-
     static String suitSymbol;
     static String cardNumber;
     static int cardValue;
     static int cardSuit;
-
     public static String getCardNumber(int cardValue){
     if (cardValue == 1){
         cardNumber = ("A");
@@ -25,7 +23,6 @@ public class cardPull {
     }
     return cardNumber;
     }
-
     public static String getCardSuit(int cardSuit){
 
         switch (cardSuit) {
@@ -36,7 +33,6 @@ public class cardPull {
         }
         return suitSymbol;
     }
-
     public static void printCard() {
         if (cardValue == 10) {
             System.out.format("""
@@ -62,7 +58,6 @@ public class cardPull {
                     \uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44""", cardPull.cardNumber, suitSymbol, cardPull.cardNumber);
         }
     }
-
     public static void main(String[] args) {
         System.out.println("Pull a Card: ");
         Random random = new Random();
@@ -71,7 +66,5 @@ public class cardPull {
         suitSymbol = getCardSuit(cardSuit);
         cardNumber = getCardNumber(cardValue);
         printCard();
-
-
     }
 }
