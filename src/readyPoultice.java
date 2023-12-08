@@ -147,13 +147,13 @@ public class readyPoultice {
         try {
             save = new FileWriter(characterID+".txt");
         } catch (IOException e) {
-            System.out.println("Error occurred writing to file: " + e.toString());
+            System.out.println("Error occurred writing to file: " + e);
         } finally {
             if (save != null) {
                 try {
                     save.close();
                 } catch (IOException ce) {
-                    System.out.println("Failed to close the file: " + ce.toString());
+                    System.out.println("Failed to close the file: " + ce);
                 }
             }
         }
@@ -239,19 +239,16 @@ public class readyPoultice {
             }
         }
         System.out.format(suitSymbol + origin);
-
-
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
 
         makeCharacter();
         happy();
-
-
-
-        //characterID = (characterName+characterSpecies);
-       //save(characterID);
+        int saveOption;
+        //add save option ********
+        characterID = (characterName+characterSpecies);
+        save(characterID);
 
     }
 }
