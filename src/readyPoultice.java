@@ -459,7 +459,6 @@ canSoar = true;
         setFamiliarRelationship();
         System.out.println(familiarRelationship);
     }
-
     private static String getOrigin() {
         String origin = ("");
         switch (cardSuit) {
@@ -470,11 +469,9 @@ canSoar = true;
         }
         return origin;
     }
-
     public static void main(String[] args) {
 
         makeCharacter();
-
         characterID = (characterName+characterSpecies);
         happy();
 
