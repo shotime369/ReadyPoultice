@@ -153,8 +153,7 @@ public class readyPoultice {
                 descriptor2 = "Brushwise. They grew up amongst brambles and \n" +
                         "dandelions, and know many Bristley Woods plants.";
                 benefit = ("-2 Rarity for all Plant Reagents.");
-                System.out.println(descriptor2);
-                System.out.println(benefit);
+
             }
             case 2 -> {
                 descriptor2 = """
@@ -162,8 +161,7 @@ public class readyPoultice {
                         making tips. Their incredible bedside manner\s
                         soothes even the surliest beasts.""";
                 benefit = ("Start all Ailment Timers with +2.");
-                System.out.println(descriptor2);
-                System.out.println(benefit);
+
             }
             case 3 -> {
                 descriptor2 = """
@@ -174,8 +172,7 @@ public class readyPoultice {
                         When you draw a ♥ or ♦ for a Travel Encounter with\s
                         a Behemoth tag h, gain a local Reagent (rarity ≤6)\s
                         and end the event positively.""");
-                System.out.println(descriptor2);
-                System.out.println(benefit);
+
             }
             case 4 ->{
                 descriptor2 = """
@@ -184,24 +181,21 @@ public class readyPoultice {
                         companion with a knack for gathering gossip""";
                 benefit = ("When Bartering, -2 Base Rarity for the desired \n" +
                         "Reagent Part");
-                System.out.println(descriptor2);
-                System.out.println(benefit);
+
             }
             case 5 ->{
                 descriptor2 = "Shrewd. They know the value and use of many \n" +
                         "things, and enjoy haggling for bargains.";
                 benefit = ("Earn +1 Trinket when trading Remedies for Trinkets.");
-                System.out.println(descriptor2);
-                System.out.println(benefit);
+
             }
             case 6 ->{
                 descriptor2 = """
                         Vigorous. Through the use of leveraging\s
                         contraptions or perhaps brute strength, your\s
                         Familiar helps you move many things.""";
-                benefit = ("Gain +2 Carry (or +4 with a Wagon).");
-                System.out.println(descriptor2);
-                System.out.println(benefit);
+                benefit = ("Gain +2 Carry (or +4 with a Wagon)");
+
             }
             case 7 ->{
                 descriptor2 = """
@@ -209,12 +203,11 @@ public class readyPoultice {
                         mysterious means, they have a knack for sourcing\s
                         a special reagent.""";
                 benefit = ("""
-                         Choose a Reagent (Base Rarity ≤7). Your Familiar\s
+                        Choose a Reagent (Base Rarity ≤7). Your Familiar\s
                         allows you to Forage for it in any Region. \s
                         This Reagent can be changed at the start of every\s
                         new Journey.""");
-                System.out.println(descriptor2);
-                System.out.println(benefit);
+
             }
             case 8 ->{
                 descriptor2 = """
@@ -223,8 +216,7 @@ public class readyPoultice {
                         many routes.""";
                 benefit = ("When drawing a Travel encounter, you may draw \n" +
                         "twice and choose the card you prefer.");
-                System.out.println(descriptor2);
-                System.out.println(benefit);
+
             }
             case 9 ->{
                 descriptor2 = """
@@ -232,8 +224,7 @@ public class readyPoultice {
                         seasons and know many great spots to forage in\s
                         for the freshest Reagents.\s""";
                 benefit = ("Start each Ailment with +2 Foraging Points.");
-                System.out.println(descriptor2);
-                System.out.println(benefit);
+
             }
             case 10 ->{
                 descriptor2 = """
@@ -242,11 +233,10 @@ public class readyPoultice {
                         experiences, they often wander off on their own.\s
                         However, they always share what they find.""";
                 benefit = ("""
-                         Once per Ailment, your Familiar can Forage at an\s
+                        Once per Ailment, your Familiar can Forage at an\s
                         Adjacent Location. Draw a card to see what they\s
                         find. They do not trigger events or reduce Timers.\s""");
-                System.out.println(descriptor2);
-                System.out.println(benefit);
+
             }
             case 11 ->{
                 descriptor2 = """
@@ -258,22 +248,18 @@ public class readyPoultice {
                         -2 TITAN Reagent Rarity. While Foraging Titan and\s
                         Barrow Locations, you may draw twice and choose\s
                         the card you prefer.""");
-                System.out.println(descriptor2);
-                System.out.println(benefit);
+
             }
             case 12, 13 ->{
                 descriptor2 = """
                         Ingenuitive. Your Familiar has cultivated a rather\s
                         unconventional set of incredibly useful—but\s
                         impossible to teach—skills.""";
-                benefit = ("Your Familiar provides the benefits of a Tool ");
-                System.out.println(descriptor2);
-                System.out.println(benefit);
+                benefit = ("Your Familiar provides the benefits of a Tool");
             }
-
-
         }
-
+        System.out.println(descriptor2);
+        System.out.println("🍀" + benefit);
     }
     public static void speciesOptions(){
       switch (cardValue){
@@ -437,7 +423,7 @@ canSoar = true;
         printCard();
         String origin = getOrigin();
         System.out.format(suitSymbol + origin);
-        System.out.println("Who is your familiar?");
+        System.out.println("\nWho is your familiar?");
         System.out.println("Press enter to draw a card: ");
         scanner.nextLine();
         printCard();
@@ -447,12 +433,13 @@ canSoar = true;
         // add error handling do not allow blank name or species *****************
         System.out.format("\nPlease choose a name for the %s : ", familiarSpecies);
         familiarName = scanner.nextLine();
-        System.out.format("What benefit does %s %s give you?",familiarName,familiarSpecies);
-        System.out.println("Press enter to draw a card: ");
+        System.out.format("\nWhat benefit does %s %s give you?",familiarName,familiarSpecies);
+        System.out.println("\nPress enter to draw a card: ");
         scanner.nextLine();
         printCard();
         familiarOptions();
-        System.out.format("What is your relationship with %s %s?",familiarName,familiarSpecies);
+        System.out.format("\n" +
+                "What is your relationship with %s %s?",familiarName,familiarSpecies);
         System.out.println("Press enter to draw a card: ");
         scanner.nextLine();
         printCard();
