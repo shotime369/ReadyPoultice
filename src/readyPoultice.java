@@ -339,14 +339,14 @@ public class readyPoultice {
     public static void makeCharacter() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Who are you?");
-        System.out.println("Press enter to draw a card: ");
+        System.out.print("Press enter to draw a card: ");
         scanner.nextLine();
         printCard();
         speciesOptions();
-        System.out.format("\nEnter your species from the list above or choose your own %s animal: ", descriptor);
+        System.out.format("Enter your species from the list above or choose your own %s animal: ", descriptor);
         characterSpecies = scanner.nextLine();
         // add error handling do not allow blank name or species *****************
-        System.out.format("\nPlease choose a name for your %s : ", characterSpecies);
+        System.out.format("Please choose a name for your %s : ", characterSpecies);
         characterName = scanner.nextLine();
         System.out.format("\nYour Poulticier is %s %s\n", characterName, characterSpecies);
         System.out.println("\nHow do you travel?");
@@ -396,24 +396,24 @@ canSoar = true;
         printCard();
         String origin = getOrigin();
         System.out.format(suitSymbol + origin);
-        System.out.println("\nWho is your familiar?");
-        System.out.println("Press enter to draw a card: ");
+        System.out.println("\n");
+        System.out.println("Who is your familiar?");
+        System.out.print("Press enter to draw a card: ");
         scanner.nextLine();
         printCard();
         speciesOptions();
-        System.out.format("\nEnter your species from the list above or another %s animal: ", descriptor);
+        System.out.format("Enter your species from the list above or another %s animal: ", descriptor);
         familiarSpecies = scanner.nextLine();
         // add error handling do not allow blank name or species *****************
-        System.out.format("\nPlease choose a name for the %s : ", familiarSpecies);
+        System.out.format("Please choose a name for the %s : ", familiarSpecies);
         familiarName = scanner.nextLine();
         System.out.format("\nWhat benefit does %s %s give you?",familiarName,familiarSpecies);
-        System.out.println("\nPress enter to draw a card: ");
+        System.out.print("\nPress enter to draw a card: ");
         scanner.nextLine();
         printCard();
         familiarOptions();
-        System.out.format("\n" +
-                "What is your relationship with %s %s?",familiarName,familiarSpecies);
-        System.out.println("Press enter to draw a card: ");
+        System.out.format("\nWhat is your relationship with %s %s?",familiarName,familiarSpecies);
+        System.out.print("\nPress enter to draw a card: ");
         scanner.nextLine();
         printCard();
         setFamiliarRelationship();
