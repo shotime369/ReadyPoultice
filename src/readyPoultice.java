@@ -18,6 +18,7 @@ public class readyPoultice {
     static String familiarName;
     static String familiarSpecies;
     static String descriptor2;
+    static String descriptor3;
     static String benefit;
     static String familiarRelationship;
 
@@ -83,61 +84,86 @@ public class readyPoultice {
     }
     public static void setFamiliarRelationship(){
     switch (cardValue){
-        case 1 -> familiarRelationship = """
-                Chanced Upon.\s
-                💐Until recently, you had no idea who they were. Now, you get on like a house on fire.
-                ✏ Journal about the spark that started your relationship’s blaze.""";
-        case 2 -> familiarRelationship = """
-                Companion.\s
-                💐Your shared love runs deep. You oft think about each other and feel stronger together.
-                 ✏ Journal about when you realised you loved them.""";
-        case 3 -> familiarRelationship = """
-                Collaborators.\s
-                💐You were united by a passion for seeing a project or cause through to the end.
-                ✏ Journal about what you both hope to achieve.""";
-        case 4 -> familiarRelationship = """
-                Mentor.\s
-                💐It can be annoying to have your reins pulled in, but this wiser beast’s experience is invaluable.
-                ✏ Journal about the most important lesson they have imparted to you.""";
-        case 5 -> familiarRelationship = """
-                Supportive.\s
-                💐Something in common hounds you both. You’ve found security in each other’s paws.
-                ✏ Journal about what you are running from.""";
-        case 6 -> familiarRelationship = """
-                Wildcard.\s
-                💐Something about them absolutely fascinates you—they find this entertaining.
-                Journal about why they are so cool!""";
-        case 7 -> familiarRelationship = """
-                Oldest Friend.\s
-                💐You grew up together and know everything about each other. Who else could you trust?
-                ✏ Journal about something embarrassing they did as a cub, pup, fledgling or hatchling""";
-        case 8 -> familiarRelationship = """
-                Blood-bound.\s
-                You agreed never to speak of it again.
-                This secret will be kept from here to Elsewhere.
-                Think about what happened. Never admit to it.""";
-        case 9 -> familiarRelationship = """
-                Sibling.\s
-                💐It doesn't matter if you actually share blood; you treat this rapscallion as your own family.
-                It's just a shame they can be so frustrating at times! Will they ever grow up?\s
-                ✏ Journal about a lesson they keep failing to learn.""";
-        case 10 -> familiarRelationship = """
-                Rekindled.\s
-                💐You once shared a very different relationship.\s
-                What matters presently is that you need each other.\s
-                ✏ Journal about the breakup, and crossing paths again.""";
-        case 11 -> familiarRelationship = """
-                Elsewhere.\s
-                💐They’re gone, you’ll never see them again.\s
-                Still, they’re in your mind and memories, and sometimes you talk.
-                ✏ Journal about something or somewhere you wish you could have shown them.""";
-        case 12, 13 -> familiarRelationship = """
-                Parental.\s
-                💐They nursed you from a tiny thing to a fully-fledged adult.\s
-                Even though you’ve flown the nest, they still protectively circle you.
-                ✏ Journal about the stifling safety they provide.""";
+        case 1 -> {
+            familiarRelationship = "Chanced Upon.";
+            descriptor3 = """
+                    💐Until recently, you had no idea who they were. Now, you get on like a house on fire.
+                    ✏ Journal about the spark that started your relationship’s blaze.""";
+        }
+        case 2 -> {
+            familiarRelationship = "Companion.";
+            descriptor3 = """
+                    💐Your shared love runs deep. You oft think about each other and feel stronger together.
+                     ✏ Journal about when you realised you loved them.""";
+        }
+        case 3 -> {
+            familiarRelationship = "Collaborators.";
+            descriptor3 = """
+                    💐You were united by a passion for seeing a project or cause through to the end.
+                    ✏ Journal about what you both hope to achieve.""";
+        }
+        case 4 -> {
+            familiarRelationship = "Mentor.";
+            descriptor3 = """
+                    💐It can be annoying to have your reins pulled in, but this wiser beast’s experience is invaluable.
+                    ✏ Journal about the most important lesson they have imparted to you.""";
+        }
+        case 5 -> {
+            familiarRelationship = "Supportive.";
+            descriptor3 = """
+                    💐Something in common hounds you both. You’ve found security in each other’s paws.
+                    ✏ Journal about what you are running from.""";
+        }
+        case 6 -> {
+            familiarRelationship = "Wildcard.";
+            descriptor3 = """
+                    💐Something about them absolutely fascinates you—they find this entertaining.
+                    Journal about why they are so cool!""";
+        }
+        case 7 -> {
+            familiarRelationship = "Oldest Friend.";
+            descriptor3 = """
+                    💐You grew up together and know everything about each other. Who else could you trust?
+                    ✏ Journal about something embarrassing they did as a cub, pup, fledgling or hatchling""";
+        }
+        case 8 -> {
+            familiarRelationship = "Blood-bound.";
+            descriptor3 = """
+                    You agreed never to speak of it again.
+                    This secret will be kept from here to Elsewhere.
+                    Think about what happened. Never admit to it.""";
+        }
+        case 9 -> {
+            familiarRelationship = "Sibling.";
+            descriptor3 = """
+                    💐It doesn't matter if you actually share blood; you treat this rapscallion as your own family.
+                    It's just a shame they can be so frustrating at times! Will they ever grow up?\s
+                    ✏ Journal about a lesson they keep failing to learn.""";
+        }
+        case 10 -> {
+            familiarRelationship = "Rekindled.";
+            descriptor3 = """
+                    💐You once shared a very different relationship.\s
+                    What matters presently is that you need each other.\s
+                    ✏ Journal about the breakup, and crossing paths again.""";
+        }
+        case 11 -> {
+            familiarRelationship = "Elsewhere.";
+            descriptor3 = """
+                    💐They’re gone, you’ll never see them again.\s
+                    Still, they’re in your mind and memories, and sometimes you talk.
+                    ✏ Journal about something or somewhere you wish you could have shown them.""";
+        }
+        case 12, 13 -> {
+            familiarRelationship = "Parental.";
+                     descriptor3 = """
+                    💐They nursed you from a tiny thing to a fully-fledged adult. ;
+                    Even though you’ve flown the nest, they still protectively circle you.
+                    ✏ Journal about the stifling safety they provide.""";
+        }
     }
         System.out.println(familiarRelationship);
+        System.out.println(descriptor3);
 }
     public static void familiarOptions(){
 
@@ -181,7 +207,7 @@ public class readyPoultice {
             case 6 ->{
                 descriptor2 = """
                         Vigorous.\s
-                        Through the use of leveraging contraptions or perhaps brute strength, 
+                        Through the use of leveraging contraptions or perhaps brute strength,\s
                         your Familiar helps you move many things.""";
                 benefit = ("Gain +2 Carry (or +4 with a Wagon)");
             }
@@ -303,6 +329,7 @@ public class readyPoultice {
         FileWriter save = null;
         try {
             save = new FileWriter(characterID+".txt");
+            save.write(characterName + characterSpecies + carry + speed + canSoar + familiarName + familiarSpecies + familiarRelationship + benefit);
         } catch (IOException e) {
             System.out.println("Error occurred writing to file: " + e);
         } finally {
