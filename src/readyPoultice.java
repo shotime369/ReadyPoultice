@@ -329,7 +329,15 @@ public class readyPoultice {
         FileWriter save = null;
         try {
             save = new FileWriter(characterID+".txt");
-            save.write(characterName + characterSpecies + carry + speed + canSoar + familiarName + familiarSpecies + familiarRelationship + benefit);
+            save.write(characterName +  "\n" +
+                    characterSpecies + "\n" +
+                    carry + "\n" +
+                    speed + "\n " +
+                    canSoar + "\n" +
+                    familiarName + "\n" +
+                    familiarSpecies + "\n" +
+                    familiarRelationship + "\n" +
+                    benefit);
         } catch (IOException e) {
             System.out.println("Error occurred writing to file: " + e);
         } finally {
@@ -413,7 +421,7 @@ public class readyPoultice {
                 System.out.println("You choose Swift and Soaring");
 speed  = 5;
 carry = 2;
-canSoar = true;
+canSoar =true;
             }
         }
         System.out.println("\nHow do you start out?");
