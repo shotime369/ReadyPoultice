@@ -12,9 +12,11 @@ public class readyPoultice {
     static String descriptor;
     static String characterName;
     static String characterID;
+    static String travelStyle;
     static int carry;
     static int speed;
     static boolean canSoar;
+    static String origin;
     static String familiarName;
     static String familiarSpecies;
     static String descriptor2;
@@ -371,6 +373,34 @@ public class readyPoultice {
             case 3 -> System.out.println("***Main Menu***");
         }
     }
+    public static void printSheet(){
+        String Soar;
+        if (canSoar){ Soar = "☑";}
+        else Soar = "☒";
+
+
+        System.out.format("""
+                ╭───────────────────────────────────༻༻*❀⸙┈𝓐𝓹𝓪𝔀𝓽𝓱𝓮𝓬𝓪𝓻𝓲𝓪┈⸙❀*༺༺────────────────────────────────────╮
+                │                                                                                                    │
+                │    Name/Animal : %s %s
+                │    Travel Style: %s\s
+                │    Origin: %s\s
+                │                                                                                    ╭───────────────│
+                │  °     ⎧⎫     ☆                                                                    | Speed: %d      │
+                │  * ._──││──_.°                                                                     ╰───────────────│
+                │ °  │╰------╯│  ☆                                                                   ╭───────────────│
+                │    ⎩        ⎭ *                                                                    | Carry: %d      │
+                │     "──────"    ☼                                                                  ╰───────────────│
+                │                                                                                      Soar?: %s      │
+                │    Familiar:
+                │    Relationship:
+                │    Benefits
+                │                                                                                                    │
+                ╰────────────────────────────────────────────────────────────────────────────────────────────────────╯
+               
+                """,characterName,characterSpecies,travelStyle,origin,speed,carry,Soar);
+
+    }
     public static void makeCharacter() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Who are you?");
@@ -389,7 +419,6 @@ public class readyPoultice {
         System.out.print("Press enter to draw a card: ");
         scanner.nextLine();
         printCard();
-        String travelStyle = ("");
         switch (cardSuit) {
             case 0 -> {
                 travelStyle = ("Slow and Steady");
@@ -429,7 +458,12 @@ canSoar =true;
         System.out.print("Press enter to draw a card: ");
         scanner.nextLine();
         printCard();
-        String origin = getOrigin();
+        switch (cardSuit) {
+            case 0 -> origin = ("Inspired by a passing Poulticier, and the impression they left.");
+            case 1 -> origin = ("Recruited to help elderly Poulticiers find reagents.");
+            case 2 -> origin = ("Received treatment after a violent encounter.");
+            case 3 -> origin = ("Needed a Poulticier's services after an accident.");
+        }
         System.out.format(suitSymbol + origin);
         System.out.println("\n");
         System.out.println("Who is your familiar?");
@@ -453,20 +487,13 @@ canSoar =true;
         printCard();
         setFamiliarRelationship();
     }
-    private static String getOrigin() {
-        String origin = ("");
-        switch (cardSuit) {
-            case 0 -> origin = ("Inspired by a passing Poulticier, and the impression they left.");
-            case 1 -> origin = ("Recruited to help elderly Poulticiers find reagents.");
-            case 2 -> origin = ("Received treatment after a violent encounter.");
-            case 3 -> origin = ("Needed a Poulticier's services after an accident.");
-        }
-        return origin;
-    }
+
+
     public static void main(String[] args) {
 
         makeCharacter();
         characterID = (characterName+characterSpecies);
+        printSheet();
         happy();
 
 
