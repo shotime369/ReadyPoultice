@@ -6,26 +6,31 @@ public class art {
         String travel = "Slow & Steady";
         int speed = 3;
         int carry = 5;
+        boolean canSoar = false;
+        String Soar = null;
+        if (canSoar){ Soar = "☑";}
+        else Soar = "☒";
+
 
         System.out.format("""
                 ╭──────────────༻༻*❀⸙┈Apawthecaria┈⸙❀*༺༺──────────────╮
-                |                                                       |
-                    Name/Animal : %s %s
-                    Travel Style: %s                                    \s
-                |                                       ╭───────────────|\s
-                |                                       |  Speed: %d     |
-                |                                       ╰───────────────|
-                |                                       ╭───────────────|\s
-                |                                       |  Carry: %d     |
-                |                                       ╰───────────────|
-                | Familiar:
-                | Relationship:
-                | Benefits
-                |
-                |       Journey:
-                        Urgency:
-                        Goal:
-                """,name,species,travel,speed,carry);
+                │                                                       │
+                │    Name/Animal : %s %s
+                │    Travel Style: %s                                    \s
+                │                                       ╭───────────────│\s
+                │  °     ⎧⎫     ☆                       |  Speed: %d     │
+                │  * ._──││──_.°                        ╰───────────────│
+                │ °  │╰------╯│  ☆                      ╭───────────────│\s
+                │    ⎩        ⎭ *                       |  Carry: %d     │
+                │     "──────"    ☼                     ╰───────────────│
+                │                                        Soar?: %s       │
+                │    Familiar:
+                │    Relationship:
+                │    Benefits
+                │                                                       │
+                ╰───────────────────────────────────────────────────────╯
+               
+                """,name,species,travel,speed,carry,Soar);
 
 
 System.out.println("""
