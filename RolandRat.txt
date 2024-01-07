@@ -1,0 +1,11 @@
+Roland
+Rat
+Rambling and Ready
+Received treatment after a violent encounter.
+false
+3
+4
+Ca
+Cat
+Oldest Friend
+Once per Ailment, your Familiar can Forage at an Adjacent Location. Draw a card to see what they find.

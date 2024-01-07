@@ -1,7 +1,14 @@
+
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Random;
 import java.util.Scanner;
+import java.io.File;
+import java.io.FilenameFilter;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+
+
 
 public class readyPoultice {
     static String suitSymbol;
@@ -24,25 +31,39 @@ public class readyPoultice {
     static String benefit;
     static String familiarRelationship;
     public static void mainMenu() {
-
         System.out.println("Welcome to ReadyPoultice");
-        System.out.println("Main menu:");
-        System.out.println("""
-                                    Start New Character (1)\s
-                                    Load Character (2)\s
-                                    Random NPC (3)\s
-                                    Exit (4)\s
-                """);
-        System.out.print("Select your option: ");
-        Scanner input = new Scanner(System.in);
-        int option1 = input.nextInt();
-        switch (option1) {
-            case 1 -> System.out.println("readyPoultice");
-            case 2 -> System.out.println("Load Character");
-            case 3 -> System.out.println("Random NPC");
-            case 4 -> System.out.println("Exit");
-            default -> System.out.println("Not an option, select 1-4");
-        }
+        int option1;
+       do {
+            System.out.println("Main menu:");
+            System.out.println("""
+                                        Start New Character (1)\s
+                                        Load Character (2)\s
+                                        Random NPC (3)\s
+                                        Draw A Card (4)\s
+                                        Exit (5)\s
+                    """);
+            System.out.print("Select your option: ");
+            Scanner input = new Scanner(System.in);
+            option1 = input.nextInt();
+            switch (option1) {
+                case 1 -> {
+                    makeCharacter();
+                    printSheet();
+                    happy();
+                }
+                case 2 -> loadCharacter();
+                case 3 -> System.out.println("Random NPC");
+                case 4 -> {
+                    printCard();
+                    mainMenu();
+                }
+                case 5 -> {System.out.println("Exiting Program...");
+                    System.exit(0);
+                }
+                default -> System.out.println("Not an option, select 1-5");
+            }
+       }
+       while (true);
     }
     public static String getCardNumber(int cardValue){
         if (cardValue == 1){
@@ -103,186 +124,6 @@ public class readyPoultice {
                     \uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44\uD83C\uDF3F\uD83C\uDF44
                     """, readyPoultice.cardNumber, suitSymbol, readyPoultice.cardNumber);
         }
-    }
-    public static void setFamiliarRelationship(){
-    switch (cardValue){
-        case 1 -> {
-            familiarRelationship = "Chanced Upon";
-            descriptor3 = """
-                    💐Until recently, you had no idea who they were. Now, you get on like a house on fire.
-                    ✏ Journal about the spark that started your relationship’s blaze.""";
-        }
-        case 2 -> {
-            familiarRelationship = "Companion";
-            descriptor3 = """
-                    💐Your shared love runs deep. You oft think about each other and feel stronger together.
-                     ✏ Journal about when you realised you loved them.""";
-        }
-        case 3 -> {
-            familiarRelationship = "Collaborators";
-            descriptor3 = """
-                    💐You were united by a passion for seeing a project or cause through to the end.
-                    ✏ Journal about what you both hope to achieve.""";
-        }
-        case 4 -> {
-            familiarRelationship = "Mentor";
-            descriptor3 = """
-                    💐It can be annoying to have your reins pulled in, but this wiser beast’s experience is invaluable.
-                    ✏ Journal about the most important lesson they have imparted to you.""";
-        }
-        case 5 -> {
-            familiarRelationship = "Supportive";
-            descriptor3 = """
-                    💐Something in common hounds you both. You’ve found security in each other’s paws.
-                    ✏ Journal about what you are running from.""";
-        }
-        case 6 -> {
-            familiarRelationship = "Wildcard";
-            descriptor3 = """
-                    💐Something about them absolutely fascinates you—they find this entertaining.
-                    Journal about why they are so cool!""";
-        }
-        case 7 -> {
-            familiarRelationship = "Oldest Friend";
-            descriptor3 = """
-                    💐You grew up together and know everything about each other. Who else could you trust?
-                    ✏ Journal about something embarrassing they did as a cub, pup, fledgling or hatchling""";
-        }
-        case 8 -> {
-            familiarRelationship = "Blood-bound";
-            descriptor3 = """
-                    You agreed never to speak of it again.
-                    This secret will be kept from here to Elsewhere.
-                    Think about what happened. Never admit to it.""";
-        }
-        case 9 -> {
-            familiarRelationship = "Sibling";
-            descriptor3 = """
-                    💐It doesn't matter if you actually share blood; you treat this rapscallion as your own family.
-                    It's just a shame they can be so frustrating at times! Will they ever grow up?\s
-                    ✏ Journal about a lesson they keep failing to learn.""";
-        }
-        case 10 -> {
-            familiarRelationship = "Rekindled";
-            descriptor3 = """
-                    💐You once shared a very different relationship.\s
-                    What matters presently is that you need each other.\s
-                    ✏ Journal about the breakup, and crossing paths again.""";
-        }
-        case 11 -> {
-            familiarRelationship = "Elsewhere";
-            descriptor3 = """
-                    💐They’re gone, you’ll never see them again.\s
-                    Still, they’re in your mind and memories, and sometimes you talk.
-                    ✏ Journal about something or somewhere you wish you could have shown them.""";
-        }
-        case 12, 13 -> {
-            familiarRelationship = "Parental";
-                     descriptor3 = """
-                    💐They nursed you from a tiny thing to a fully-fledged adult. ;
-                    Even though you’ve flown the nest, they still protectively circle you.
-                    ✏ Journal about the stifling safety they provide.""";
-        }
-    }
-        System.out.println(familiarRelationship);
-        System.out.println(descriptor3);
-}
-    public static void familiarOptions(){
-
-        switch (cardValue){
-            case 1 -> {
-                descriptor2 = """
-                        Brushwise\s
-                        They grew up amongst brambles and dandelions, and know many Bristley Woods plants.""";
-                benefit = ("-2 Rarity for all Plant Reagents.");
-            }
-            case 2 -> {
-                descriptor2 = """
-                        Helpful\s
-                        They are full of a plethora of remedy making tips.\s
-                        Their incredible bedside manner soothes even the surliest beasts.""";
-                benefit = ("Start all Ailment Timers with +2.");
-            }
-            case 3 -> {
-                descriptor2 = """
-                        Brave\s
-                        Despite their comparatively small size,\s
-                        they fiercely face larger threats and have a host of daring stories.""";
-                benefit = ("""
-                        When you draw a ♥ or ♦ for a Travel Encounter with a Behemoth,\s
-                        gain a local Reagent (rarity ≤6) and end the event positively.""");
-            }
-            case 4 ->{
-                descriptor2 = """
-                        Chatty\s
-                        They could talk the ears off of a long eared brown bat!\s
-                        They are an interesting travel companion with a knack for gathering gossip""";
-                benefit = ("When Bartering, -2 Base Rarity for the desired Reagent Part");
-
-            }
-            case 5 ->{
-                descriptor2 = """
-                        Shrewd\s
-                        They know the value and use of many\s
-                        things, and enjoy haggling for bargains.""";
-                benefit = ("Earn +1 Trinket when trading Remedies for Trinkets.");
-            }
-            case 6 ->{
-                descriptor2 = """
-                        Vigorous\s
-                        Through the use of leveraging contraptions or perhaps brute strength,\s
-                        your Familiar helps you move many things.""";
-                benefit = ("Gain +2 Carry (or +4 with a Wagon)");
-            }
-            case 7 ->{
-                descriptor2 = """
-                        Resourceful\s
-                        Through friendly connection or mysterious means,\s
-                        they have a knack for sourcing a special reagent.""";
-                benefit = ("""
-                        Choose a Reagent (Base Rarity ≤7). Your Familiar allows you to Forage for it in any Region. \s
-                        This Reagent can be changed at the start of every new Journey.""");
-            }
-            case 8 ->{
-                descriptor2 = """
-                        Seasoned\s
-                        They toured the Bristley Woods more times than they care to remember and knows many routes.""";
-                benefit = ("When drawing a Travel encounter, you may draw twice and choose the card you prefer.");
-            }
-            case 9 ->{
-                descriptor2 = """
-                        Perceptive\s
-                        They keep a keen eye on changing seasons\s
-                        and know many great spots to forage in for the freshest Reagents.\s""";
-                benefit = ("Start each Ailment with +2 Foraging Points.");
-            }
-            case 10 ->{
-                descriptor2 = """
-                        Independent\s
-                        Whether a free spirit, easily overwhelmed in crowds or seeking new experiences,\s
-                        they often wander off on their own. However, they always share what they find.""";
-                benefit = ("""
-                        Once per Ailment, your Familiar can Forage at an Adjacent Location.\s
-                        Draw a card to see what they find. They do not trigger events or reduce Timers.\s""");
-            }
-            case 11 ->{
-                descriptor2 = """
-                        Titanwise\s
-                        Your Familiar likes delving into Behemoth barrows and climbing the towering Titan ruins that dot the Bristley Woods
-                        —niche but invaluable experiences.""";
-                benefit = ("""
-                        -2 TITAN Reagent Rarity. While Foraging Titan and Barrow Locations,\s
-                        you may draw twice and choose the card you prefer.""");
-            }
-            case 12, 13 ->{
-                descriptor2 = """
-                        Ingenuitive\s
-                        Your Familiar has cultivated a rather unconventional set of incredibly useful —but impossible to teach— skills.""";
-                benefit = ("Your Familiar provides the benefits of a Tool");
-            }
-        }
-        System.out.println(descriptor2);
-        System.out.println("🍀" + benefit);
     }
     public static void speciesOptions(){
       switch (cardValue){
@@ -353,9 +194,11 @@ public class readyPoultice {
             save = new FileWriter(characterID+".txt");
             save.write(characterName +  "\n" +
                     characterSpecies + "\n" +
-                    carry + "\n" +
-                    speed + "\n " +
+                    travelStyle + "\n" +
+                    origin+ "\n" +
                     canSoar + "\n" +
+                    speed + "\n" +
+                    carry + "\n" +
                     familiarName + "\n" +
                     familiarSpecies + "\n" +
                     familiarRelationship + "\n" +
@@ -372,27 +215,81 @@ public class readyPoultice {
             }
         }
     }
+    public static void loadCharacter(){
+
+                File directoryPath = new File("C:\\Users\\nescol\\IdeaProjects\\ReadyPoultice");
+                FilenameFilter textFilefilter = (dir, name) -> {
+                    String lowercaseName = name.toLowerCase();
+                    if (lowercaseName.endsWith(".txt")) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                };
+                String[] filesList = directoryPath.list(textFilefilter);
+        assert filesList != null;
+        for (int i = 0; i < filesList.length; i++) {
+            System.out.println((i + 1) + ". " + filesList[i]);
+        }
+        System.out.println("Choose your file:");
+        Scanner input = new Scanner(System.in);
+        int fileNum = input.nextInt();
+        //use user number to select the file
+        System.out.println(filesList[fileNum-1]);
+        String filePath = filesList[fileNum-1];
+        //load the file lines to an array list
+        ArrayList<String> fileLines = new ArrayList<>();
+        try (Scanner scanner = new Scanner(new File(filePath))) {
+            // Read each line from the file and add to the ArrayList
+            while (scanner.hasNextLine()) {
+                fileLines.add(scanner.nextLine());
+            }
+        } catch (FileNotFoundException ignored) {
+        }
+       //for (String line : fileLines) {
+       //    System.out.println(line);
+       //}
+            //output to character sheet
+        characterName = fileLines.get(0);
+        characterSpecies = fileLines.get(1);
+        travelStyle = fileLines.get(2);
+        origin= fileLines.get(3);
+        canSoar= Boolean.parseBoolean(fileLines.get(4));
+        speed= Integer.parseInt(fileLines.get(5));
+        carry= Integer.parseInt(fileLines.get(6));
+        familiarName= fileLines.get(7);
+        familiarSpecies= fileLines.get(8);
+        familiarRelationship= fileLines.get(9);
+        benefit= fileLines.get(10);
+printSheet();
+}
     public static void happy() {
         Scanner sc = new Scanner(System.in);
-        //System.out.println("");
-        System.out.println("\nAre you happy with your character, or would you like to start over?");
-        System.out.println("""
-                                    Save Character (1)\s
-                                    Start New Character (2)\s
-                                    Main Menu (3)\s
-                """);
-        System.out.print("Select your option: ");
-        int option1 =  sc.nextInt();
-        switch (option1) {
-            case 1 -> { save(characterID);
-            System.out.println("***Main Menu***");}
-            case 2 -> {
-                makeCharacter();
-                printSheet();
-                happy();
+        int option2;
+        do {
+            System.out.println("\nAre you happy with your character, or would you like to start again?");
+            System.out.println("""
+                                        Save Character (1)\s
+                                        Start New Character (2)\s
+                                        Main Menu (3)\s
+                    """);
+            System.out.print("Select your option: ");
+            option2 = sc.nextInt();
+            switch (option2) {
+                case 1 -> {
+                    save(characterID);
+                    mainMenu();
+                }
+                case 2 -> {
+                    makeCharacter();
+                    printSheet();
+                    happy();
+                }
+                case 3 -> mainMenu();
+                default -> System.out.println("Not an option, select 1-3");
             }
-            case 3 -> System.out.println("***Main Menu***");
         }
+        while (option2 != 3);
     }
     public static void printSheet(){
         String Soar;
@@ -436,6 +333,7 @@ public class readyPoultice {
         // add error handling do not allow blank name or species *****************
         System.out.format("Please choose a name for your %s : ", characterSpecies);
         characterName = scanner.nextLine();
+        characterID= characterName+characterSpecies;
         System.out.format("\nYour Poulticier is %s %s\n", characterName, characterSpecies);
         System.out.println("\nHow do you travel?");
         System.out.println("Carry determines how many items like tools and reagents you can hold. Speed affects how far you can travel when Moving.");
@@ -503,23 +401,181 @@ canSoar =true;
         System.out.print("\nPress enter to draw a card: ");
         scanner.nextLine();
         printCard();
-        familiarOptions();
+        switch (cardValue){
+            case 1 -> {
+                descriptor2 = """
+                        Brushwise\s
+                        They grew up amongst brambles and dandelions, and know many Bristley Woods plants.""";
+                benefit = ("-2 Rarity for all Plant Reagents.");
+            }
+            case 2 -> {
+                descriptor2 = """
+                        Helpful\s
+                        They are full of a plethora of remedy making tips.\s
+                        Their incredible bedside manner soothes even the surliest beasts.""";
+                benefit = ("Start all Ailment Timers with +2.");
+            }
+            case 3 -> {
+                descriptor2 = """
+                        Brave\s
+                        Despite their comparatively small size,\s
+                        they fiercely face larger threats and have a host of daring stories.""";
+                benefit = (" When you draw a ♥ or ♦ for a Travel Encounter with a Behemoth, gain a local Reagent (rarity ≤6) and end the event positively.");
+            }
+            case 4 ->{
+                descriptor2 = """
+                        Chatty\s
+                        They could talk the ears off of a long eared brown bat!\s
+                        They are an interesting travel companion with a knack for gathering gossip""";
+                benefit = ("When Bartering, -2 Base Rarity for the desired Reagent Part");
+
+            }
+            case 5 ->{
+                descriptor2 = """
+                        Shrewd\s
+                        They know the value and use of many\s
+                        things, and enjoy haggling for bargains.""";
+                benefit = ("Earn +1 Trinket when trading Remedies for Trinkets.");
+            }
+            case 6 ->{
+                descriptor2 = """
+                        Vigorous\s
+                        Through the use of leveraging contraptions or perhaps brute strength,\s
+                        your Familiar helps you move many things.""";
+                benefit = ("Gain +2 Carry (or +4 with a Wagon)");
+            }
+            case 7 ->{
+                descriptor2 = """
+                        Resourceful\s
+                        Through friendly connection or mysterious means,\s
+                        they have a knack for sourcing a special reagent.""";
+                benefit = ("Choose a Reagent (Base Rarity ≤7). Your Familiar allows you to Forage for it in any Region.");
+            }
+            case 8 ->{
+                descriptor2 = """
+                        Seasoned\s
+                        They toured the Bristley Woods more times than they care to remember and knows many routes.""";
+                benefit = ("When drawing a Travel encounter, you may draw twice and choose the card you prefer.");
+            }
+            case 9 ->{
+                descriptor2 = """
+                        Perceptive\s
+                        They keep a keen eye on changing seasons\s
+                        and know many great spots to forage in for the freshest Reagents.\s""";
+                benefit = ("Start each Ailment with +2 Foraging Points.");
+            }
+            case 10 ->{
+                descriptor2 = """
+                        Independent\s
+                        Whether a free spirit, easily overwhelmed in crowds or seeking new experiences,\s
+                        they often wander off on their own. However, they always share what they find.""";
+                benefit = ("Once per Ailment, your Familiar can Forage at an Adjacent Location. Draw a card to see what they find.");
+            }
+            case 11 ->{
+                descriptor2 = """
+                        Titanwise\s
+                        Your Familiar likes delving into Behemoth barrows and climbing the towering Titan ruins that dot the Bristley Woods
+                        —niche but invaluable experiences.""";
+                benefit = ("-2 TITAN Reagent Rarity. While Foraging Titan and Barrow Locations, you may draw twice and choose the card you prefer.");
+            }
+            case 12, 13 ->{
+                descriptor2 = """
+                        Ingenuitive\s
+                        Your Familiar has cultivated a rather unconventional set of incredibly useful —but impossible to teach— skills.""";
+                benefit = ("Your Familiar provides the benefits of a Tool");
+            }
+        }
+        System.out.println(descriptor2);
+        System.out.println("🍀" + benefit);
         System.out.format("\nWhat is your relationship with %s %s?",familiarName,familiarSpecies);
         System.out.print("\nPress enter to draw a card: ");
         scanner.nextLine();
         printCard();
-        setFamiliarRelationship();
+        switch (cardValue){
+            case 1 -> {
+                familiarRelationship = "Chanced Upon";
+                descriptor3 = """
+                    💐Until recently, you had no idea who they were. Now, you get on like a house on fire.
+                    ✏ Journal about the spark that started your relationship’s blaze.""";
+            }
+            case 2 -> {
+                familiarRelationship = "Companion";
+                descriptor3 = """
+                    💐Your shared love runs deep. You oft think about each other and feel stronger together.
+                     ✏ Journal about when you realised you loved them.""";
+            }
+            case 3 -> {
+                familiarRelationship = "Collaborators";
+                descriptor3 = """
+                    💐You were united by a passion for seeing a project or cause through to the end.
+                    ✏ Journal about what you both hope to achieve.""";
+            }
+            case 4 -> {
+                familiarRelationship = "Mentor";
+                descriptor3 = """
+                    💐It can be annoying to have your reins pulled in, but this wiser beast’s experience is invaluable.
+                    ✏ Journal about the most important lesson they have imparted to you.""";
+            }
+            case 5 -> {
+                familiarRelationship = "Supportive";
+                descriptor3 = """
+                    💐Something in common hounds you both. You’ve found security in each other’s paws.
+                    ✏ Journal about what you are running from.""";
+            }
+            case 6 -> {
+                familiarRelationship = "Wildcard";
+                descriptor3 = """
+                    💐Something about them absolutely fascinates you—they find this entertaining.
+                    Journal about why they are so cool!""";
+            }
+            case 7 -> {
+                familiarRelationship = "Oldest Friend";
+                descriptor3 = """
+                    💐You grew up together and know everything about each other. Who else could you trust?
+                    ✏ Journal about something embarrassing they did as a cub, pup, fledgling or hatchling""";
+            }
+            case 8 -> {
+                familiarRelationship = "Blood-bound";
+                descriptor3 = """
+                    You agreed never to speak of it again.
+                    This secret will be kept from here to Elsewhere.
+                    Think about what happened. Never admit to it.""";
+            }
+            case 9 -> {
+                familiarRelationship = "Sibling";
+                descriptor3 = """
+                    💐It doesn't matter if you actually share blood; you treat this rapscallion as your own family.
+                    It's just a shame they can be so frustrating at times! Will they ever grow up?\s
+                    ✏ Journal about a lesson they keep failing to learn.""";
+            }
+            case 10 -> {
+                familiarRelationship = "Rekindled";
+                descriptor3 = """
+                    💐You once shared a very different relationship.\s
+                    What matters presently is that you need each other.\s
+                    ✏ Journal about the breakup, and crossing paths again.""";
+            }
+            case 11 -> {
+                familiarRelationship = "Elsewhere";
+                descriptor3 = """
+                    💐They’re gone, you’ll never see them again.\s
+                    Still, they’re in your mind and memories, and sometimes you talk.
+                    ✏ Journal about something or somewhere you wish you could have shown them.""";
+            }
+            case 12, 13 -> {
+                familiarRelationship = "Parental";
+                descriptor3 = """
+                    💐They nursed you from a tiny thing to a fully-fledged adult. ;
+                    Even though you’ve flown the nest, they still protectively circle you.
+                    ✏ Journal about the stifling safety they provide.""";
+            }
+        }
+        System.out.println(familiarRelationship);
+        System.out.println(descriptor3);
     }
-
-
     public static void main(String[] args) {
 
-            mainMenu();
-        makeCharacter();
-        characterID = (characterName+characterSpecies);
-        printSheet();
-        happy();
-
+        mainMenu();
 
     }
 }
