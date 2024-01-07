@@ -23,7 +23,27 @@ public class readyPoultice {
     static String descriptor3;
     static String benefit;
     static String familiarRelationship;
+    public static void mainMenu() {
 
+        System.out.println("Welcome to ReadyPoultice");
+        System.out.println("Main menu:");
+        System.out.println("""
+                                    Start New Character (1)\s
+                                    Load Character (2)\s
+                                    Random NPC (3)\s
+                                    Exit (4)\s
+                """);
+        System.out.print("Select your option: ");
+        Scanner input = new Scanner(System.in);
+        int option1 = input.nextInt();
+        switch (option1) {
+            case 1 -> System.out.println("readyPoultice");
+            case 2 -> System.out.println("Load Character");
+            case 3 -> System.out.println("Random NPC");
+            case 4 -> System.out.println("Exit");
+            default -> System.out.println("Not an option, select 1-4");
+        }
+    }
     public static String getCardNumber(int cardValue){
         if (cardValue == 1){
             cardNumber = ("A");
@@ -494,6 +514,7 @@ canSoar =true;
 
     public static void main(String[] args) {
 
+            mainMenu();
         makeCharacter();
         characterID = (characterName+characterSpecies);
         printSheet();
