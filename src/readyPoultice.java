@@ -216,15 +216,10 @@ public class readyPoultice {
         }
     }
     public static void loadCharacter(){
-
                 File directoryPath = new File("C:\\Users\\nescol\\IdeaProjects\\ReadyPoultice");
                 FilenameFilter textFilefilter = (dir, name) -> {
                     String lowercaseName = name.toLowerCase();
-                    if (lowercaseName.endsWith(".txt")) {
-                        return true;
-                    } else {
-                        return false;
-                    }
+                    return lowercaseName.endsWith(".txt");
                 };
                 String[] filesList = directoryPath.list(textFilefilter);
         assert filesList != null;
@@ -246,10 +241,7 @@ public class readyPoultice {
             }
         } catch (FileNotFoundException ignored) {
         }
-       //for (String line : fileLines) {
-       //    System.out.println(line);
-       //}
-            //output to character sheet
+
         characterName = fileLines.get(0);
         characterSpecies = fileLines.get(1);
         travelStyle = fileLines.get(2);
@@ -328,13 +320,41 @@ printSheet();
         scanner.nextLine();
         printCard();
         speciesOptions();
-        System.out.format("Enter your species from the list above or choose your own %s animal: ", descriptor);
-        characterSpecies = scanner.nextLine();
-        // add error handling do not allow blank name or species *****************
+
+        //char name
+        boolean errorFlag;
+        do {
+            System.out.format("Enter your species from the list above or choose your own %s animal: ", descriptor);
+            characterSpecies = scanner.nextLine();
+            // Check if the input contains only letters
+            if (!characterSpecies.matches("[a-zA-Z]+")){
+                errorFlag = true;
+                System.out.println("Error: Please enter only text without numbers or special characters.");
+            }
+            else{
+                errorFlag = false;
+            }
+        } while (errorFlag);
+
+//char species
+        boolean errorFlag2;
+        do {
         System.out.format("Please choose a name for your %s : ", characterSpecies);
         characterName = scanner.nextLine();
+            if (!characterSpecies.matches("[a-zA-Z]+")){
+                errorFlag2 = true;
+                System.out.println("Error: Please enter only text without numbers or special characters.");
+        }
+            else{
+            errorFlag2 = false;
+        }
+    } while (errorFlag2);
+
+        //charID
         characterID= characterName+characterSpecies;
         System.out.format("\nYour Poulticier is %s %s\n", characterName, characterSpecies);
+
+        //travel
         System.out.println("\nHow do you travel?");
         System.out.println("Carry determines how many items like tools and reagents you can hold. Speed affects how far you can travel when Moving.");
         System.out.print("Press enter to draw a card: ");
@@ -359,21 +379,33 @@ printSheet();
         }
         System.out.format("%s Travel style is %s- Speed %d, Carry %d",suitSymbol, travelStyle, speed, carry);
         System.out.println("\nAlternatively you may pick Swift and Soaring - Speed 5, Carry 2 (can Soar)");
-        System.out.println(travelStyle + " (1)\n"
-        + "Swift and Soaring (2)");
-        System.out.print("Select your option: ");
+        // travel options
         Scanner sc = new Scanner(System.in);
-        int option1 =  sc.nextInt();
-        switch (option1) {
-            case 1 -> {
-            }
-            case 2 -> {
-                System.out.println("You choose Swift and Soaring");
-speed  = 5;
-carry = 2;
-canSoar =true;
+        int option1;
+        System.out.println(travelStyle + " (1)\n"
+                        + "Swift and Soaring (2)");
+            System.out.print("Select your option: ");
+        option1 = sc.nextInt();
+        do {
+            switch (option1) {
+                case 1 -> {
+                }
+                case 2 -> {
+                    System.out.println("You choose Swift and Soaring");
+                    speed = 5;
+                    carry = 2;
+                    canSoar = true;
+                }
+                default -> {
+                    System.out.println("not an option, please choose 1 or 2");
+                    System.out.print("Select your option: ");
+                    option1 = sc.nextInt();
+                }
             }
         }
+        while (option1 != 1 && option1 != 2);
+
+        //starting out
         System.out.println("\nHow do you start out?");
         System.out.println("A dangerous world makes most beasts practical. Our origins don't often start with idle dreams but calls to action. \nWho (or what) first helped you onto your path as a Poulticepounder?");
         System.out.print("Press enter to draw a card: ");
