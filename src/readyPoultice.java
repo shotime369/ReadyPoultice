@@ -9,7 +9,6 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 
-
 public class readyPoultice {
     static String suitSymbol;
     static String cardNumber;
@@ -81,10 +80,7 @@ public class readyPoultice {
                 }
                 case 2 -> loadCharacter();
                 case 3 -> randomNPC();
-                case 4 -> {
-                    printCard();
-                    mainMenu();
-                }
+                case 4 -> printCard();
                 case 5 -> {System.out.println("Exiting Program...");
                     System.exit(0);
                 }
@@ -363,7 +359,11 @@ public class readyPoultice {
             System.out.format("Enter your species from the list above or choose your own %s animal: ", descriptor);
             characterSpecies = scanner.nextLine();
             // Check if the input contains only letters
-            if (!characterSpecies.matches("[a-zA-Z]+")){
+            if (!characterSpecies.matches("[a-zA-Z ]+")){
+                errorFlag = true;
+                System.out.println("Error: Please enter only text without numbers or special characters.");
+            }
+            else if (characterSpecies.isEmpty()) {
                 errorFlag = true;
                 System.out.println("Error: Please enter only text without numbers or special characters.");
             }
@@ -377,10 +377,14 @@ public class readyPoultice {
         do {
         System.out.format("Please choose a name for your %s : ", characterSpecies);
         characterName = scanner.nextLine();
-            if (!characterSpecies.matches("[a-zA-Z]+")){
+            if (!characterName.matches("[a-zA-Z ]+")){
                 errorFlag2 = true;
                 System.out.println("Error: Please enter only text without numbers or special characters.");
         }
+            else if (characterName.isEmpty()) {
+                errorFlag2 = true;
+                System.out.println("Error: Please enter only text without numbers or special characters.");
+            }
             else{
             errorFlag2 = false;
         }
@@ -460,11 +464,44 @@ public class readyPoultice {
         scanner.nextLine();
         printCard();
         speciesOptions();
-        System.out.format("Enter your species from the list above or another %s animal: ", descriptor);
+
+
+        boolean errorFlag3;
+        do {
+            System.out.format("Enter your species from the list above or another %s animal: ", descriptor);
         familiarSpecies = scanner.nextLine();
-        // add error handling do not allow blank name or species *****************
+            if (!familiarSpecies.matches("[a-zA-Z ]+")){
+                errorFlag3 = true;
+                System.out.println("Error: Please enter only text without numbers or special characters.");
+            }
+            else if (familiarSpecies.isEmpty()) {
+                errorFlag3 = true;
+                System.out.println("Error: Please enter only text without numbers or special characters.");
+            }
+            else{
+                errorFlag3 = false;
+            }
+        } while (errorFlag3);
+
+        boolean errorFlag4;
+        do {
         System.out.format("Please choose a name for the %s : ", familiarSpecies);
         familiarName = scanner.nextLine();
+            if (!familiarName.matches("[a-zA-Z ]+")){
+                errorFlag4 = true;
+                System.out.println("Error: Please enter only text without numbers or special characters.");
+            }
+            else if (familiarName.isEmpty()) {
+                errorFlag4 = true;
+                System.out.println("Error: Please enter only text without numbers or special characters.");
+            }
+            else{
+                errorFlag4 = false;
+            }
+        } while (errorFlag4);
+
+
+
         System.out.format("\nWhat benefit does %s %s give you?",familiarName,familiarSpecies);
         System.out.print("\nPress enter to draw a card: ");
         scanner.nextLine();
