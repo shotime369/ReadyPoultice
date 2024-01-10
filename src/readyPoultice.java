@@ -679,8 +679,6 @@ public class readyPoultice {
         System.out.println(descriptor3);
     }
     public static void main(String[] args) {
-
         mainMenu();
-
     }
 }
