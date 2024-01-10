@@ -30,8 +30,36 @@ public class readyPoultice {
     static String descriptor3;
     static String benefit;
     static String familiarRelationship;
+    public static void randomNPC(){
+
+        String[] species = {"Beaver", "Dipper", "Newt", "Frog", "Finch", "Tit", "Swallow", "Jay", "Badger", "Hare",
+                "Hedgehog", "Mole", "Crow", "Skylark", "Swift", "Otter", "Squirrel", "Shrew", "Dormouse",
+                "Slow Worm", "Adder", "Forest Cat", "Kestrel", "Weasel", "Stoat", "Lizard", "Seagull",
+                "Dove", "Bat", "Fox", "Rat", "Nightjar", "Corncrake", "Toad", "Newt", "Dunnock",
+                "Little Owl", "Vole", "Capercaillie", "Pine Marten"};
+        String[] personality = {
+                "Witty", "Passionate", "Snide",
+                "Soft", "Stoic", "Cruel",
+                "Furious", "Oblivious", "Scared",
+                "Joyous", "Depressed", "Evasive",
+                "Immaterial", "Dreamy", "Distracted",
+                "Suspicious", "Curious", "Secretive",
+                "Loud", "Disgusting", "Brash",
+                "Radiant", "Generous", "Energetic",
+                "Cool", "Calm", "Collected",
+                "Whelmed", "Draining", "Killjoy",
+                "Anxious", "Skittish", "Jubilant",
+                "Distant", "Righteous", "Rebellious"};
+        Random random1 = new Random();
+        String randSpecies = species[random1.nextInt(0,40)];
+        String randPer = personality[random1.nextInt(0,36)];
+        System.out.println("\n");
+        System.out.println(randPer + " " + randSpecies);
+        System.out.println("\n");
+
+    }
     public static void mainMenu() {
-        System.out.println("Welcome to ReadyPoultice");
+
         int option1;
        do {
             System.out.println("Main menu:");
@@ -52,7 +80,7 @@ public class readyPoultice {
                     happy();
                 }
                 case 2 -> loadCharacter();
-                case 3 -> System.out.println("Random NPC");
+                case 3 -> randomNPC();
                 case 4 -> {
                     printCard();
                     mainMenu();
