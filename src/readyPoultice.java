@@ -13,9 +13,9 @@ import java.util.InputMismatchException;
 public class readyPoultice {
     static String suitSymbol;
     static String cardNumber;
-    static String characterSpecies;
     static int cardValue;
     static int cardSuit;
+    static String characterSpecies;
     static String descriptor;
     static String characterName;
     static String characterID;
