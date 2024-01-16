@@ -7,6 +7,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 
 
 public class readyPoultice {
@@ -66,7 +67,7 @@ public class readyPoultice {
                                         Start New Character (1)\s
                                         Load Character (2)\s
                                         Random NPC (3)\s
-                                        Draw A Card (4)\s
+                                        Journey Tracker (4)\s
                                         Exit (5)\s
                     """);
             System.out.print("Select your option: ");
@@ -80,7 +81,7 @@ public class readyPoultice {
                 }
                 case 2 -> loadCharacter();
                 case 3 -> randomNPC();
-                case 4 -> printCard();
+                case 4 -> journeyTracker();
                 case 5 -> {System.out.println("Exiting Program...");
                     System.exit(0);
                 }
@@ -116,6 +117,36 @@ public class readyPoultice {
             case 3 -> suitSymbol = ("♣");
         }
         return suitSymbol;
+    }
+    public static void journeyTracker() {
+
+        int days;
+        while (true) {
+            Scanner scannerDays = new Scanner(System.in);
+            try {
+                System.out.print("\uD83E\uDDED Please enter your Journey Length in number of days: ");
+                days = scannerDays.nextInt();
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Invalid input. Please enter a valid number.");
+                scannerDays.nextLine();
+            }
+        }
+        int dayup = 1;
+        System.out.println("Days remaining: " + days);
+        while (true) {
+            Scanner scannerEnt = new Scanner(System.in);
+            System.out.print("\uD83C\uDF19 End of Day " + dayup + ", Press Enter:");
+            scannerEnt.nextLine();
+            dayup++;
+            days--;
+            if (days > 0) {
+                System.out.println("\nDays remaining: " + days);
+            } else {
+                System.out.println("\uD83C\uDFF5️Journey complete\uD83C\uDFF5️");
+                break;
+            }
+        }
     }
     public static void printCard() {
         Random random = new Random();
@@ -352,7 +383,6 @@ public class readyPoultice {
         scanner.nextLine();
         printCard();
         speciesOptions();
-
         //char name
         boolean errorFlag;
         do {
@@ -464,8 +494,6 @@ public class readyPoultice {
         scanner.nextLine();
         printCard();
         speciesOptions();
-
-
         boolean errorFlag3;
         do {
             System.out.format("Enter your species from the list above or another %s animal: ", descriptor);
