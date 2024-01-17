@@ -1,0 +1,11 @@
+Tin
+Weasel
+Slow and Steady
+Needed a Poulticier's services after an accident.
+false
+2
+5
+Peppy
+Tit
+Chanced Upon
+ When you draw a ♥ or ♦ for a Travel Encounter with a Behemoth, gain a local Reagent (rarity ≤6) and end the event positively.

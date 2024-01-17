@@ -283,7 +283,7 @@ public class readyPoultice {
 
         try {
         //this file path will need to be changed for each user ***
-                File directoryPath = new File("C:\\Users\\27260255\\IdeaProjects\\ReadyPoultice\\");
+                File directoryPath = new File("C:\\Users\\nescol\\IdeaProjects\\ReadyPoultice\\");
                 FilenameFilter textFilefilter = (dir, name) -> {
                     String lowercaseName = name.toLowerCase();
                     return lowercaseName.endsWith(".txt");
