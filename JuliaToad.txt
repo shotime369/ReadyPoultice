@@ -1,0 +1,11 @@
+Julia
+Toad
+Rambling and Ready
+Needed a Poulticier's services after an accident.
+false
+3
+4
+Poppy
+Pine Marten
+Mentor
+ When you draw a ♥ or ♦ for a Travel Encounter with a Behemoth, gain a local Reagent (rarity ≤6) and end the event positively.

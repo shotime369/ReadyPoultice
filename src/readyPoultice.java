@@ -460,13 +460,13 @@ public class readyPoultice {
         System.out.println("\nAlternatively you may pick Swift and Soaring - Speed 5, Carry 2 (can Soar)");
         // travel options
         Scanner sc = new Scanner(System.in);
-        int option1;
+        int option3;
         System.out.println(travelStyle + " (1)\n"
                         + "Swift and Soaring (2)");
             System.out.print("Select your option: ");
-        option1 = sc.nextInt();
+        option3 = sc.nextInt();
         do {
-            switch (option1) {
+            switch (option3) {
                 case 1 -> {
                 }
                 case 2 -> {
@@ -478,11 +478,11 @@ public class readyPoultice {
                 default -> {
                     System.out.println("not an option, please choose 1 or 2");
                     System.out.print("Select your option: ");
-                    option1 = sc.nextInt();
+                    option3 = sc.nextInt();
                 }
             }
         }
-        while (option1 != 1 && option1 != 2);
+        while (option3 != 1 && option3 != 2);
 
         //starting out
         System.out.println("\nHow do you start out?");
