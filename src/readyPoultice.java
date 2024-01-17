@@ -61,7 +61,7 @@ public class readyPoultice {
     public static void mainMenu() {
 
         int option1;
-       do {
+        do {
             System.out.println("Main menu:");
             System.out.println("""
                                         Start New Character (1)\s
@@ -71,24 +71,33 @@ public class readyPoultice {
                                         Exit (5)\s
                     """);
             System.out.print("Select your option: ");
-            Scanner input = new Scanner(System.in);
-            option1 = input.nextInt();
-            switch (option1) {
-                case 1 -> {
-                    makeCharacter();
-                    printSheet();
-                    happy();
+
+                Scanner input = null;
+                try {
+                    input = new Scanner(System.in);
+                    option1 = input.nextInt();
+                    switch (option1) {
+                        case 1 -> {
+                            makeCharacter();
+                            printSheet();
+                            happy();
+                        }
+                        case 2 -> loadCharacter();
+                        case 3 -> randomNPC();
+                        case 4 -> journeyTracker();
+                        case 5 -> {
+                            System.out.println("Exiting Program...");
+                            System.exit(0);
+                        }
+                        default -> System.out.println("Not an option, select 1-5");
+                    }
+                } catch (InputMismatchException e) {
+                    System.out.println("Invalid input. Please enter a valid number.");
+                    assert input != null;
+                    input.nextLine();
                 }
-                case 2 -> loadCharacter();
-                case 3 -> randomNPC();
-                case 4 -> journeyTracker();
-                case 5 -> {System.out.println("Exiting Program...");
-                    System.exit(0);
-                }
-                default -> System.out.println("Not an option, select 1-5");
-            }
-       }
-       while (true);
+        }
+        while (true) ;
     }
     public static String getCardNumber(int cardValue){
         if (cardValue == 1){
@@ -314,7 +323,7 @@ public class readyPoultice {
         benefit= fileLines.get(10);
             printSheet();
         } catch (Exception e) {
-            System.out.println("Please change the file path to match your own directory");
+            System.out.println("File not found, you may need to change the file path to match your own directory");
             System.out.println(e.toString());
         }
 }
